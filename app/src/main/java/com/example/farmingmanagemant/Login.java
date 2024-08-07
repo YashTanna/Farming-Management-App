@@ -1,8 +1,8 @@
 package com.example.farmingmanagemant;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,22 +10,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
-    Button b;
-    Intent intent;
+    TextView user,pass;
+    Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
-        b = findViewById(R.id.btn_login);
-        intent = new Intent(this,Login.class);
-
-        b.setOnClickListener(v->{
-            startActivity(intent);
-        });
+        user = findViewById(R.id.et_username);
+        pass = findViewById(R.id.et_password);
+        btn_login = findViewById(R.id.btn_login);
 
     }
 }
