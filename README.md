@@ -1,9 +1,12 @@
 # Farming-Management-App
-Android app devlopment project 
+# Android App Development Project
 
+## Description
 
-##Discription
+This project involves the development of an Android app.
 
-<title>Team Member</title>title></br></br>
--Yash Tanna (https://www.linkedin.com/in/yash-tanna-29baa4241/)</br>
--Divy Vaghani
+## Team Members
+
+- [Yash Tanna](https://www.linkedin.com/in/yash-tanna-29baa4241/)
+- Divy Vaghani
+
