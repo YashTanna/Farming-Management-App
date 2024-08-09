@@ -12,19 +12,27 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b;
-    Intent intent;
+    Button b,b2;
+    Intent intent,i2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b = findViewById(R.id.btn_login);
+        b =  findViewById(R.id.btn_login);
         intent = new Intent(this,Login.class);
 
         b.setOnClickListener(v->{
             startActivity(intent);
+        });
+
+        b2 = findViewById(R.id.btn_signup);
+
+        i2 = new Intent(this,SignUp.class);
+
+        b2.setOnClickListener(v->{
+            startActivity(i2);
         });
 
     }

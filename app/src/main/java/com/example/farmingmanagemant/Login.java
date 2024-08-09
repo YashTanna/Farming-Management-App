@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Login extends AppCompatActivity {
 
-    TextView user,pass;
+    TextView email,pass;
     Button btn_login;
 
     @Override
@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        user = findViewById(R.id.et_username);
+        email = findViewById(R.id.et_email);
         pass = findViewById(R.id.et_password);
         btn_login = findViewById(R.id.btn_login);
 
