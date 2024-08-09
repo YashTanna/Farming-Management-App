@@ -3,6 +3,7 @@ package com.example.farmingmanagemant;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         b =  findViewById(R.id.btn_login);
         intent = new Intent(this,Login.class);
