@@ -1,5 +1,4 @@
 # Farming-Management-App
-# Android App Development Project
 
 ## Description
 
