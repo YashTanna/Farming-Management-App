@@ -17,7 +17,9 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="101dp"
-        app:title="Sign Up"/>
+        app:title="Sign Up"
+        app:titleTextColor="@color/white"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -33,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="First Name"
+            android:hint="@string/fname"
             android:inputType="text" />
 
         <EditText
@@ -42,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Last Name"
+            android:hint="@string/lname"
             android:inputType="text" />
 
         <EditText
@@ -51,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -60,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Phone Number"
+            android:hint="@string/phone_no"
             android:inputType="number" />
 
         <EditText
@@ -68,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Enter Password"
+            android:hint="@string/ent_pass"
             android:inputType="textPassword" />
 
         <EditText
@@ -76,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="Confirm Password"
+            android:hint="@string/conf_pass"
             android:inputType="textPassword" />
 
         <Button
@@ -85,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="20dp"
-            android:text="Submit"
+            android:text="@string/btn_submit"
             android:textSize="20sp" />
     </LinearLayout>
 

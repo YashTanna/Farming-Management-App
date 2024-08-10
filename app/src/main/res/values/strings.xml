@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">FarmingManagemant</string>
+    <string name="app_name">FarmingApp</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_logout">Log Out</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="phone_no">Phone Number</string>
+    <string name="ent_pass">Enter Password</string>
+    <string name="conf_pass">Confirm Password</string>
+    <string name="tool_title">YASH TANNA</string>
+    <string name="back_arrow_desc">Back</string>
 </resources>
