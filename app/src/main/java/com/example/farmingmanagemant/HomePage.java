@@ -11,28 +11,50 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomePage extends AppCompatActivity {
 
-    Button logout;
-    Intent i1;
-    SharedPreferences sp;
+    BottomNavigationView navigationView;
+    private boolean isFirst = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        i1 = new Intent(this, MainActivity.class);
-        sp = getSharedPreferences("user_detail",MODE_PRIVATE);
-        logout = findViewById(R.id.btn_logout);
+        navigationView = findViewById(R.id.navigation);
 
-        logout.setOnClickListener(v->{
-            SharedPreferences.Editor edit = sp.edit();
-            edit.clear();
-            edit.commit();
-            startActivity(i1);
-            Toast.makeText(this,"Logout Successfully",Toast.LENGTH_SHORT).show();
+        loadFrag(new Home());
+
+        navigationView.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if(id == R.id.home){
+                loadFrag(new Home());
+            }else if(id == R.id.loan){
+                loadFrag(new Home());
+            }else{
+                loadFrag(new Home());
+            }
+            return true;
         });
 
+
+    }
+
+    public void loadFrag(Fragment fragment){
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if(isFirst){
+            ft.add(R.id.container,fragment);
+            isFirst = false;
+        }else{
+            ft.replace(R.id.container,fragment);
+        }
+        ft.commit();
     }
 }

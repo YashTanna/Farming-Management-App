@@ -14,4 +14,9 @@
     <string name="tool_title">YASH TANNA</string>
     <string name="back_arrow_desc">Back</string>
     <string name="poster_title">Welcome To farmning App</string>
+    <string name="home">Home</string>
+    <string name="loan">Loan</string>
+    <string name="help">Help</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
