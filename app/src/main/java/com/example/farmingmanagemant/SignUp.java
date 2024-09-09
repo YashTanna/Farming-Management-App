@@ -20,7 +20,7 @@ public class SignUp extends AppCompatActivity {
     TextView fname,lname,email,number,pass,confpass;
     Button btn_signup;
     MyDataType mydatatype;
-    MyDBHelper mydbhelper;
+    DataBase mydbhelper;
     Intent intent;
 
     @Override
@@ -45,7 +45,7 @@ public class SignUp extends AppCompatActivity {
         pass = findViewById(R.id.et_pass);
         confpass = findViewById(R.id.et_confpass);
         mydatatype = new MyDataType();
-        mydbhelper = new MyDBHelper(this);
+        mydbhelper = new DataBase(this);
         intent = new Intent(this,Login.class);
 
         btn_signup.setOnClickListener(v->{
@@ -58,7 +58,7 @@ public class SignUp extends AppCompatActivity {
                 mydatatype.email = email.getText().toString();
                 mydatatype.phone = number.getText().toString();
                 mydatatype.pass = confpass.getText().toString();
-                mydbhelper.addInfo(mydatatype);
+               // mydbhelper.addInfo(mydatatype);
                 Toast.makeText(this,"Account created Successfully",Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }

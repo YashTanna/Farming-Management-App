@@ -1,82 +1,97 @@
 package com.example.farmingmanagemant;
 
-import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
+import java.util.Random;
 
 public class Login extends AppCompatActivity {
 
-    TextView email,pass;
-    Button btn_login;
-    Intent intent;
-    MyDataType mydatatype;
-    MyDBHelper mydbhelper;
-    SharedPreferences sp;
+    private static final String CHANNEL_ID = "OTP_NOTIFICATION_CHANNEL";
+    private EditText phoneNumberField;
+    private DataBase logindatabase;
+    private String generatedOtp;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        phoneNumberField = findViewById(R.id.phone_number);
+        logindatabase = new DataBase(this);
 
+        // Create the notification channel
+        createNotificationChannel();
 
-        // Enable the Up button (back button)
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        findViewById(R.id.send_otp_button).setOnClickListener(v -> {
+            String phoneNumber = phoneNumberField.getText().toString();
+            if (phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
+                phoneNumberField.setBackgroundResource(R.drawable.error_border);
+                Toast.makeText(Login.this, "Check your phone number", Toast.LENGTH_SHORT).show();
+            } else {
+                phoneNumberField.setBackgroundResource(R.drawable.normal_border);
+                if (logindatabase.insertPhoneNumber(phoneNumber)) {
+                    generatedOtp = generateOtp();  // Generate OTP
+                    sendOtpNotification(generatedOtp);  // Send OTP via notification
 
-        // Handle the back button press
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
-
-        email = findViewById(R.id.et_email);
-        pass = findViewById(R.id.et_password);
-        btn_login = findViewById(R.id.btn_login);
-        intent = new Intent(this,HomePage.class);
-        mydatatype = new MyDataType();
-        mydbhelper = new MyDBHelper(this);
-        sp = getSharedPreferences("user_detail",MODE_PRIVATE);
-
-
-        btn_login.setOnClickListener(v -> {
-
-            if(email.getText().toString().isEmpty() || pass.getText().toString().isEmpty()){
-
-                Toast.makeText(this,"Enter Email and Password",Toast.LENGTH_SHORT).show();
-
-            }else {
-
-                mydatatype.email = email.getText().toString();
-                mydatatype.pass = pass.getText().toString();
-                boolean exist = mydbhelper.userAuthentication(mydatatype);
-                if(exist){
-                    SharedPreferences.Editor edit = sp.edit();
-                    edit.putString("email",mydatatype.email);
-                    edit.putString("password", mydatatype.pass);
-                    edit.commit();
-
+                    // Proceed to OtpActivity and pass the OTP
+                    Intent intent = new Intent(Login.this, OTP.class);
+                    intent.putExtra("generatedOtp", generatedOtp);
                     startActivity(intent);
-                    Toast.makeText(this,"Login Successfully",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(this,"Wrong Email or Password",Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
+    }
 
+    // Generate random 4-digit OTP
+    private String generateOtp() {
+        Random random = new Random();
+        int otp = 1000 + random.nextInt(9000); // 4-digit OTP
+        return String.valueOf(otp);
+    }
 
+    // Send OTP via notification
+    private void sendOtpNotification(String otp) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.india)  // Use your app icon
+                .setContentTitle("Your OTP Code")
+                .setContentText("Your OTP is: " + otp)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);  // Automatically removes notification when clicked
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        notificationManager.notify(1, builder.build());
+    }
+
+    // Create notification channel (required for Android 8.0 and above)
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 1);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "OTP Notifications";
+            String description = "Channel for OTP notifications";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+
+            // Register the channel with the system
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 }

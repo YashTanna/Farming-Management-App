@@ -1,61 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#f0f0f0">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <ImageView
+        android:id="@+id/main_image"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="40dp"
+        android:src="@drawable/sign" />
+
+    <TextView
+        android:id="@+id/signup_login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Signup/Login"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/whatsapp_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/whatsapp" />
+
+        <TextView
+            android:id="@+id/enter_whatsapp_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Enter your WhatsApp number"
+            android:textSize="20sp"
+            android:textColor="#000000" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <LinearLayout
+            android:id="@+id/default_flag_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="15dp">
+
+            <ImageView
+                android:id="@+id/default_country_flag"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/india"
+                android:layout_marginTop="5dp"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/country_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91"
+                android:layout_marginBottom="0dp"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="0dp"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:background="@drawable/normal_border"
+                android:padding="10dp"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/send_otp_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="101dp"
-        app:title="Login"
-        app:titleTextColor="@color/white"
-        />
+        android:layout_marginTop="25dp"
+        android:text="Send OTP"
+        android:textColor="#FFFFFF"
+        android:background="#52DB52" />
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="250dp"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/pass"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email"
-        android:layout_marginTop="20dp"
-        />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_login"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password"
-        android:layout_marginTop="20dp"
-        />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
