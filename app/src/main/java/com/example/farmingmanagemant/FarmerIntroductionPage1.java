@@ -24,25 +24,14 @@ public class FarmerIntroductionPage1 extends AppCompatActivity {
 //dropdownIcon = findViewById(R.id.dropdownIcon);
 
         // Set the click listener for the dropdown icon
-        dropdownIcon.setOnClickListener(v -> toggleDropdown());
+      //  dropdownIcon.setOnClickListener(v -> toggleDropdown());
     }
 
     // Toggle the visibility of the dropdown (ScrollView)
-    public void toggleDropdown() {
-        if (isDropdownOpen) {
-            scrollView.setVisibility(View.GONE);
-        } else {
-            scrollView.setVisibility(View.VISIBLE);
-        }
-        isDropdownOpen = !isDropdownOpen;
+
     }
 
-    // This method will be called when an option is clicked
-    public void selectOption(View view) {
-        TextView clickedOption = (TextView) view;
-        String selectedOption = clickedOption.getText().toString();
-        selectedOptionTextView.setText(selectedOption);
-        scrollView.setVisibility(View.GONE);  // Hide the dropdown after selection
-        isDropdownOpen = false;
-    }
-}
+    //
+
+
+
