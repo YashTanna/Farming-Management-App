@@ -94,7 +94,7 @@
             android:textColor="@color/black"/>
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/generate_otp_button"
         android:layout_width="350dp"
         android:layout_height="wrap_content"

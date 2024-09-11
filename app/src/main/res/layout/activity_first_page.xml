@@ -87,18 +87,17 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextButton"
         android:layout_width="390dp"
         android:layout_height="50dp"
         android:text="GET STARTED"
         android:textSize="24dp"
-        android:background="@color/gree
-        n"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:layout_marginBottom="50dp"
-    android:textColor="@color/white"/>
+        android:background="#4CAF50"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/existingAccountTextView"
