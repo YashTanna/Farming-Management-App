@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import java.util.Random;
 
 public class Login extends AppCompatActivity {
 
+//    SharedPreferences sp;
     private static final String CHANNEL_ID = "OTP_NOTIFICATION_CHANNEL";
     private EditText phoneNumberField;
     private DataBase logindatabase;
@@ -30,6 +32,7 @@ public class Login extends AppCompatActivity {
 
         phoneNumberField = findViewById(R.id.phone_number);
         logindatabase = new DataBase(this);
+
 
         // Create the notification channel
         createNotificationChannel();
@@ -48,6 +51,7 @@ public class Login extends AppCompatActivity {
                     // Proceed to OtpActivity and pass the OTP
                     Intent intent = new Intent(Login.this, OTP.class);
                     intent.putExtra("generatedOtp", generatedOtp);
+                    intent.putExtra("phonenumber",phoneNumberField.getText().toString());
                     startActivity(intent);
                 }
             }

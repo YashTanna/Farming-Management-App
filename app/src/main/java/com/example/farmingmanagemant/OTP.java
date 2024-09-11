@@ -2,6 +2,7 @@ package com.example.farmingmanagemant;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +17,7 @@ public class OTP extends AppCompatActivity {
     private EditText otpDigit1, otpDigit2, otpDigit3, otpDigit4;
     private String generatedOtp;
     Button generate_otp_button;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +29,11 @@ public class OTP extends AppCompatActivity {
         otpDigit3 = findViewById(R.id.otp_digit_3);
         otpDigit4 = findViewById(R.id.otp_digit_4);
         generate_otp_button = findViewById(R.id.generate_otp_button);
+        sp = getSharedPreferences("login",MODE_PRIVATE);
 
         // Retrieve the generated OTP from the previous activity
         generatedOtp = getIntent().getStringExtra("generatedOtp");
+        String phoneNumber = getIntent().getStringExtra("phonenumber");
 
         // Set the click listener for the button
         generate_otp_button.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +49,9 @@ public class OTP extends AppCompatActivity {
                 if (enteredOtp.equals(generatedOtp)) {
                     // If OTP is valid, navigate to the next activity
                     Intent intent = new Intent(OTP.this, HomePage.class);
+                    SharedPreferences.Editor edit = sp.edit();
+                    edit.putString("phonenumber",phoneNumber);
+                    edit.commit();
                     startActivity(intent);
                     finish();  // Close the current activity
                 } else {
