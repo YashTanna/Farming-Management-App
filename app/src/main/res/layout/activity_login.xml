@@ -101,7 +101,7 @@
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/send_otp_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

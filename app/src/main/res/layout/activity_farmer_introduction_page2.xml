@@ -1,0 +1,362 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <LinearLayout
+        android:id="@+id/dotsAndPipeline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appIcon"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp">
+
+        <TextView
+
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/circle_shape"
+            android:text="1"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="5dp"
+            android:background="#3CB371"
+            android:layout_gravity="center" />
+        <TextView
+
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/circle_shape"
+            android:text="2"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+        <View
+            android:layout_width="100dp"
+            android:layout_height="5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_gravity="center" />
+
+        <View
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/circle_border" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="120dp"
+        android:text="Personal details"
+        android:textColor="#3CB371"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/Text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="170dp"
+        android:text="Owner Name"
+        android:textStyle="bold"
+        android:textColor="#696969"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/Text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="104dp"
+        android:layout_marginTop="170dp"
+        android:text="*"
+        android:textStyle="bold"
+        android:textColor="#FF0000"
+        android:textSize="18sp" />
+
+
+    <LinearLayout
+        android:id="@+id/phoneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/owner"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:id="@+id/phoneText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Enter your name..."
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Address"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="265dp"
+        android:textColor="#696969"/>
+    <TextView
+        android:id="@+id/Text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="265dp"
+        android:text="*"
+        android:textStyle="bold"
+        android:textColor="#FF0000"
+        android:textSize="18sp" />
+    <LinearLayout
+        android:id="@+id/phoneLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="170dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/address"
+            android:layout_gravity="center_vertical" />
+
+        <EditText
+            android:id="@+id/phoneText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Enter your address..."
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/categoryText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="100dp"
+        android:text="Pincode"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#696969"/>
+    <TextView
+        android:id="@+id/categoryText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="65dp"
+        android:text="*"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/phoneLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="260dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:src="@drawable/pincode" />
+        <EditText
+            android:id="@+id/phoneText2"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Enter pincode..."
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/categoryText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="190dp"
+        android:text="City"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#696969"/>
+
+    <TextView
+        android:id="@+id/categoryText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="33dp"
+        android:text="*"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:id="@+id/phoneLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:src="@drawable/city" />
+        <EditText
+            android:id="@+id/phoneText5"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Enter your city..."
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="280dp"
+        android:text="State"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#696969"/>
+
+    <TextView
+        android:id="@+id/category1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="44dp"
+        android:text="*"
+        android:textColor="#FF0000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/phoneLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="440dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:src="@drawable/state" />
+        <EditText
+            android:id="@+id/phoneText4"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Enter your State..."
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
+    </LinearLayout>
+
+    <TextView
+    android:id="@+id/category2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/phoneLayout"
+    android:layout_marginTop="370dp"
+    android:text="Country"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:textColor="#696969"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/phoneLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="530dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:src="@drawable/country" />
+        <TextView
+            android:id="@+id/phoneText6"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="India"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="#A9A9A9"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/nextButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="720dp"
+        android:layout_marginLeft="320dp"
+        android:background="@drawable/circle_shape"
+        android:src="@drawable/next"
+        android:scaleType="centerInside"
+        android:contentDescription="Next Page" />
+
+</RelativeLayout>
+</ScrollView>

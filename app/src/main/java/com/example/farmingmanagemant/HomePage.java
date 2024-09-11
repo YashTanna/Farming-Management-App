@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -31,6 +32,8 @@ public class HomePage extends AppCompatActivity {
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     NavigationView navigationdrawer;
+    SharedPreferences sp;
+    DataBase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class HomePage extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerlayout);
         navigationdrawer = findViewById(R.id.navigationDrawer);
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+        db = new DataBase(this);
 
         //Set Toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.OpenDrawer,R.string.CloswDrawer);
@@ -50,9 +55,12 @@ public class HomePage extends AppCompatActivity {
 
         navigationdrawer.setNavigationItemSelectedListener(item -> {
 
-            switch (item.getItemId()){
-                default:
-                    loadFrag(new Home());
+            int id = item.getItemId();
+
+            if(id == R.id.logout){
+                generateDialog();
+            }else{
+                loadFrag(new Home());
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
@@ -99,6 +107,28 @@ public class HomePage extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void generateDialog(){
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Logout?");
+        alertDialog.setMessage("Are you sure you want to logout?");
+        alertDialog.setIcon(R.drawable.logout);
+        alertDialog.setPositiveButton("Logout",(dialog,i)->{
+
+            db.deleteByNumber(sp.getString("phonenumber",null));
+            SharedPreferences.Editor edit = sp.edit();
+
+            edit.clear();
+            edit.commit();
+            startActivity(new Intent(this,FirstPage.class));
+        });
+
+        alertDialog.setNegativeButton("Cancle",(dialog,i)->{
+
+        });
+        alertDialog.show();
     }
 
 }

@@ -35,35 +35,37 @@
         <View
             android:layout_width="100dp"
             android:layout_height="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="#3CB371"
             android:layout_gravity="center" />
+        <TextView
 
-        <View
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/circle_border" />
-
+            android:background="@drawable/circle_shape"
+            android:text="2"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
         <View
             android:layout_width="100dp"
             android:layout_height="5dp"
-            android:background="@android:color/darker_gray"
+            android:background="#3CB371"
             android:layout_gravity="center" />
 
-        <View
+        <TextView
+
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/circle_border" />
+            android:background="@drawable/circle_shape"
+            android:text="3"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/Text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="120dp"
-        android:text="Business details"
-        android:textColor="#3CB371"
-        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/Text2"
@@ -71,20 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="170dp"
-        android:text="Phone Number"
+        android:text="Website"
         android:textStyle="bold"
         android:textColor="#696969"
         android:textSize="18sp" />
-    <TextView
-        android:id="@+id/Text3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="170dp"
-        android:text="*"
-        android:textStyle="bold"
-        android:textColor="#FF0000"
-        android:textSize="18sp" />
+
 
 
     <LinearLayout
@@ -100,132 +93,69 @@
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/phone"
+            android:src="@drawable/website"
             android:layout_gravity="center_vertical" />
-        <TextView
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="+91"
-            android:background="@null"
-            android:textSize="18dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="#A9A9A9"/>
         <EditText
             android:id="@+id/phoneText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Phone Number"
-            android:background="@null"
+            android:text="Enter the website URL"
             android:textSize="18dp"
+            android:background="@null"
             android:layout_gravity="center_vertical"
             android:textColor="#A9A9A9"/>
     </LinearLayout>
-
     <TextView
-        android:id="@+id/categoryText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/phoneLayout"
-        android:layout_marginTop="10dp"
-        android:text="Category"
-        android:textColor="#696969"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Email"
+        android:textStyle="bold"
         android:textSize="18sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/categoryText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/phoneLayout"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="74dp"
-        android:text="*"
-        android:textColor="#FF0000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="265dp"
+        android:textColor="#696969"/>
 
     <LinearLayout
         android:id="@+id/phoneLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/dotsAndPipeline"
-        android:layout_marginTop="175dp"
+        android:layout_marginTop="170dp"
         android:orientation="horizontal"
         android:background="@drawable/rectangle_border"
         android:padding="12dp">
 
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/email"
+            android:layout_gravity="center_vertical" />
 
-        <TextView
+        <EditText
             android:id="@+id/phoneText1"
-            android:layout_width="333dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="select category"
+            android:layout_marginStart="10dp"
+            android:text="Enter your mail address"
             android:textSize="18dp"
             android:layout_gravity="center_vertical"
-            android:textColor="#A9A9A9"/>
-
-        <ImageView
-            android:id="@+id/image1"
-            android:layout_width="17dp"
-            android:layout_height="24dp"
-            android:src="@drawable/down" />
-        <ScrollView
-            android:id="@+id/scrollView"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/image1"
-            android:layout_marginTop="10dp"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/option1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Farmer"
-                    android:textSize="18sp"
-                    android:onClick="selectOption" />
-
-                <TextView
-                    android:id="@+id/option2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Customer"
-                    android:textSize="18sp"
-                    android:onClick="selectOption" />
-
-            </LinearLayout>
-        </ScrollView>
-
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
     </LinearLayout>
+
+
     <TextView
         android:id="@+id/categoryText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/phoneLayout"
         android:layout_marginTop="100dp"
-        android:text="Discription"
+        android:text="Facebook"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#696969"/>
-    <TextView
-        android:id="@+id/categoryText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/phoneLayout"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="86dp"
-        android:text="*"
-        android:textColor="#FF0000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/phoneLayout2"
         android:layout_width="match_parent"
@@ -238,24 +168,61 @@
         <ImageView
             android:layout_width="20dp"
             android:layout_height="24dp"
-            android:src="@drawable/discription" />
+            android:src="@drawable/facebook" />
         <EditText
             android:id="@+id/phoneText2"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Discribe about your business..."
+            android:text="Enter your facebook profile URL"
             android:layout_marginLeft="5dp"
-            android:background="@null"
             android:textSize="18dp"
             android:textColor="#A9A9A9"
-            />
+            android:background="@null"/>
     </LinearLayout>
+    <TextView
+        android:id="@+id/categoryText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneLayout"
+        android:layout_marginTop="190dp"
+        android:text="Instagram"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#696969"/>
+
+
+    <LinearLayout
+        android:id="@+id/phoneLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dotsAndPipeline"
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="12dp">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="24dp"
+            android:src="@drawable/instagram" />
+        <EditText
+            android:id="@+id/phoneText5"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Enter your instagram profile URL"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="#A9A9A9"
+            android:background="@null"/>
+    </LinearLayout>
+
+
     <ImageButton
         android:id="@+id/nextButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="540dp"
         android:layout_marginLeft="320dp"
         android:background="@drawable/circle_shape"
         android:src="@drawable/next"

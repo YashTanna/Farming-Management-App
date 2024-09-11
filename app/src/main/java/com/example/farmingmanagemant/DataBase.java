@@ -57,5 +57,15 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
+    public void deleteByNumber(String number){
+
+        if(number != null) {
+            SQLiteDatabase db = this.getWritableDatabase();
+
+            String where = COL_PHONE + "?";
+
+            db.delete(TABLE_NAME, where, new String[]{number});
+        }
+    }
 
 }
