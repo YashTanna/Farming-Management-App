@@ -2,7 +2,9 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.FarmingManagemant" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+         <item name="colorPrimary">@color/green</item>
+         <item name="colorPrimaryVariant">@color/green</item>
+         <item name="android:statusBarColor">@color/green</item>
     </style>
 
     <style name="Theme.FarmingManagemant" parent="Base.Theme.FarmingManagemant" />

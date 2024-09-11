@@ -3,24 +3,34 @@ package com.example.farmingmanagemant;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 public class HomePage extends AppCompatActivity {
 
     BottomNavigationView navigationView;
     private boolean isFirst = true;
+    BottomNavigationView bnv;
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationdrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +38,30 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
 
         navigationView = findViewById(R.id.navigation);
+        bnv = findViewById(R.id.navigation);
+        toolbar = findViewById(R.id.toolbar);
+        drawerLayout = findViewById(R.id.drawerlayout);
+        navigationdrawer = findViewById(R.id.navigationDrawer);
+
+        //Set Toggle
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.OpenDrawer,R.string.CloswDrawer);
+        drawerLayout.setDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationdrawer.setNavigationItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+                default:
+                    loadFrag(new Home());
+            }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        });
+
+        bnv.setOnItemSelectedListener(item -> {
+            loadFrag(new Home());
+            return true;
+        });
 
         loadFrag(new Home());
 
@@ -57,4 +91,14 @@ public class HomePage extends AppCompatActivity {
         }
         ft.commit();
     }
+
+    public void onBackPressed() {
+        // Check if the drawer is open
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }
