@@ -117,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Phone Number"
+            android:hint="Phone Number"
             android:background="@null"
             android:textSize="18dp"
             android:layout_gravity="center_vertical"
@@ -244,22 +244,26 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Discribe about your business..."
+            android:hint="Discribe about your business..."
             android:layout_marginLeft="5dp"
             android:background="@null"
             android:textSize="18dp"
             android:textColor="#A9A9A9"
             />
     </LinearLayout>
+
     <ImageButton
         android:id="@+id/nextButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="470dp"
+        android:layout_below="@+id/phoneLayout2"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="320dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/circle_shape"
-        android:src="@drawable/next"
+        android:contentDescription="Next Page"
         android:scaleType="centerInside"
-        android:contentDescription="Next Page" />
+        android:src="@drawable/next" />
 
 </RelativeLayout>

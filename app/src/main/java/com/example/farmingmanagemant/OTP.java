@@ -18,6 +18,7 @@ public class OTP extends AppCompatActivity {
     private String generatedOtp;
     Button generate_otp_button;
     SharedPreferences sp;
+    DataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class OTP extends AppCompatActivity {
         otpDigit4 = findViewById(R.id.otp_digit_4);
         generate_otp_button = findViewById(R.id.generate_otp_button);
         sp = getSharedPreferences("login",MODE_PRIVATE);
+        dataBase = new DataBase(this);
 
         // Retrieve the generated OTP from the previous activity
         generatedOtp = getIntent().getStringExtra("generatedOtp");
@@ -47,13 +49,23 @@ public class OTP extends AppCompatActivity {
 
                 // Validate the OTP
                 if (enteredOtp.equals(generatedOtp)) {
-                    // If OTP is valid, navigate to the next activity
-                    Intent intent = new Intent(OTP.this, HomePage.class);
+
                     SharedPreferences.Editor edit = sp.edit();
                     edit.putString("phonenumber",phoneNumber);
                     edit.commit();
-                    startActivity(intent);
-                    finish();  // Close the current activity
+
+                    if(dataBase.isNumberExist(phoneNumber)){
+                        // If OTP is valid and number is already exist, navigate to the Home activity
+                        Intent intent = new Intent(OTP.this, HomePage.class);
+
+                        startActivity(intent);
+                        finish();
+                    }else{
+                        Intent intent = new Intent(OTP.this,FarmerIntroductionPage1.class);
+                        intent.putExtra("phonenumber",phoneNumber);
+                        startActivity(intent);
+                    }
+                     // Close the current activity
                 } else {
                     // If OTP is invalid, show a toast message
                     Toast.makeText(OTP.this, "Invalid OTP. Please try again.", Toast.LENGTH_SHORT).show();

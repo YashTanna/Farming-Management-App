@@ -117,9 +117,7 @@ public class HomePage extends AppCompatActivity {
         alertDialog.setIcon(R.drawable.logout);
         alertDialog.setPositiveButton("Logout",(dialog,i)->{
 
-            db.deleteByNumber(sp.getString("phonenumber",null));
             SharedPreferences.Editor edit = sp.edit();
-
             edit.clear();
             edit.commit();
             startActivity(new Intent(this,FirstPage.class));

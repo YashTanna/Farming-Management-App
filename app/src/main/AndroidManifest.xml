@@ -21,6 +21,9 @@
             android:name=".FarmerIntroductionPage2"
             android:exported="false" />
         <activity
+            android:name=".FarmerIntroductionPage1"
+            android:exported="false" />
+        <activity
             android:name=".FirstPage"
             android:exported="false" />
         <activity

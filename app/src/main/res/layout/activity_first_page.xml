@@ -93,8 +93,7 @@
         android:layout_height="50dp"
         android:text="GET STARTED"
         android:textSize="24dp"
-        android:background="@color/gree
-        n"
+        android:background="@color/green"
     android:layout_alignParentBottom="true"
     android:layout_centerHorizontal="true"
     android:layout_marginBottom="50dp"

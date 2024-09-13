@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -117,7 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Enter your name..."
+            android:hint="Enter your name..."
             android:textSize="18dp"
             android:layout_gravity="center_vertical"
             android:textColor="#A9A9A9"
@@ -162,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Enter your address..."
+            android:hint="Enter your address..."
             android:textSize="18dp"
             android:layout_gravity="center_vertical"
             android:textColor="#A9A9A9"
@@ -209,7 +209,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Enter pincode..."
+            android:hint="Enter pincode..."
             android:layout_marginLeft="5dp"
             android:textSize="18dp"
             android:textColor="#A9A9A9"
@@ -255,7 +255,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Enter your city..."
+            android:hint="Enter your city..."
             android:layout_marginLeft="5dp"
             android:textSize="18dp"
             android:textColor="#A9A9A9"
@@ -303,7 +303,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Enter your State..."
+            android:hint="Enter your State..."
             android:layout_marginLeft="5dp"
             android:textSize="18dp"
             android:textColor="#A9A9A9"
@@ -341,7 +341,7 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="India"
+            android:hint="India"
             android:layout_marginLeft="5dp"
             android:textSize="18dp"
             android:textColor="#A9A9A9"/>
@@ -351,12 +351,15 @@
         android:id="@+id/nextButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="720dp"
+        android:layout_below="@+id/phoneLayout5"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="320dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/circle_shape"
-        android:src="@drawable/next"
+        android:contentDescription="Next Page"
         android:scaleType="centerInside"
-        android:contentDescription="Next Page" />
+        android:src="@drawable/next" />
 
 </RelativeLayout>
 </ScrollView>
