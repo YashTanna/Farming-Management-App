@@ -19,7 +19,7 @@ public class FarmerIntroductionPage1 extends AppCompatActivity {
 //    private ScrollView scrollView;
 //    private ImageView dropdownIcon;
 //    private boolean isDropdownOpen = false;
-    private EditText phoneNumber;
+    private EditText phone;
     private EditText discription;
     ImageButton next;
     DataBase db;
@@ -35,19 +35,31 @@ public class FarmerIntroductionPage1 extends AppCompatActivity {
 //        scrollView = findViewById(R.id.scrollView);
         discription = findViewById(R.id.phoneText2);
         db = new DataBase(this);
-
-
+        phone = findViewById(R.id.phoneText);
+        phone.setText(phonenumber);
+        phone.setEnabled(false);
         next.setOnClickListener(v -> {
 
-            if(phonenumber!=null) {
-                String category = "Farmer";
+            String dis = discription.getText().toString();
+            if(dis.isEmpty()){
+                Toast.makeText(this,"Fill all necessary Field",Toast.LENGTH_SHORT).show();
+            }else {
 
-                db.addInfo(phonenumber, category, discription.getText().toString());
-                Intent intent = new Intent(this, FarmerIntroductionPage2.class);
-                intent.putExtra("phonenumber", phonenumber);
-                startActivity(intent);
-            }else{
-                Toast.makeText(this,"Phone number is Null",Toast.LENGTH_SHORT).show();
+                if (phonenumber != null) {
+
+                    if (discription == null) {
+                        Toast.makeText(this, "Fill all necessary Field", Toast.LENGTH_SHORT).show();
+                    }
+                    String category = "Farmer";
+
+                    db.addInfo(phonenumber, category, dis);
+                    Intent intent = new Intent(this, FarmerIntroductionPage2.class);
+                    intent.putExtra("phonenumber", phonenumber);
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(this, "Phone number is Null", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

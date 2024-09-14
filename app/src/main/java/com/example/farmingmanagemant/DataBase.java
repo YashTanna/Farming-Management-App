@@ -51,7 +51,7 @@ public class DataBase extends SQLiteOpenHelper {
                         + TABLE_INSTAGRAM + " TEXT"
                         + ");";
 
-            db.execSQL(CREATE_TABLE);
+        db.execSQL(CREATE_TABLE);
     }
 
     @Override
@@ -142,4 +142,28 @@ public class DataBase extends SQLiteOpenHelper {
         return exist;
     }
 
+    public MyDataType getNameAndEmail(String number) {
+        MyDataType data = new MyDataType(number);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT " + TABLE_USERNAME + ", " + TABLE_EMAIL + " from " + TABLE_NAME + " where " + TABLE_PHONE_NUMBER + " = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{number});
+
+        if (cursor.moveToFirst()) {
+            int nameIndex = cursor.getColumnIndex(TABLE_USERNAME);
+            int emailIndex = cursor.getColumnIndex(TABLE_EMAIL);
+            if (nameIndex >= 0 && emailIndex >= 0) {
+                data.name = cursor.getString(nameIndex);
+                data.email = cursor.getString(emailIndex);
+            }
+        }else{
+            data.name = null;
+            data.email = null;
+        }
+        cursor.close();
+        db.close();
+        return data;
+    }
 }

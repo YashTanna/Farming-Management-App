@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -34,6 +38,9 @@ public class HomePage extends AppCompatActivity {
     NavigationView navigationdrawer;
     SharedPreferences sp;
     DataBase db;
+    String phonenumber;
+    TextView profileName,emailId;
+    ImageView profilePic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,25 @@ public class HomePage extends AppCompatActivity {
         navigationdrawer = findViewById(R.id.navigationDrawer);
         sp = getSharedPreferences("login",MODE_PRIVATE);
         db = new DataBase(this);
+        phonenumber = sp.getString("phonenumber",null);
+        View header = navigationdrawer.getHeaderView(0);
+
+        if(phonenumber == null){
+            Intent inten2 = new Intent(this,Login.class);
+            Toast.makeText(this,"Plase Login Again",Toast.LENGTH_SHORT).show();
+            startActivity(inten2);
+        }
+        profileName = header.findViewById(R.id.profileName);
+        emailId = header.findViewById(R.id.emailId);
+        profilePic = header.findViewById(R.id.profilePic);
+
+        MyDataType data = new MyDataType(phonenumber);
+        data = db.getNameAndEmail(phonenumber);
+
+        profileName.setText(data.name);
+        emailId.setText(data.email);
+        profilePic.setImageResource(R.drawable.yash);
+
 
         //Set Toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.OpenDrawer,R.string.CloswDrawer);
@@ -128,5 +154,4 @@ public class HomePage extends AppCompatActivity {
         });
         alertDialog.show();
     }
-
 }

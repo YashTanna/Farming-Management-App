@@ -3,14 +3,30 @@ package com.example.farmingmanagemant;
 import android.util.Log;
 
 public class MyDataType {
-    int id;
-    String fname;
-    String lname;
-    String email;
-    String phone;
-    String pass;
 
-    public void display(){
-        Log.d("UserInfo","Id : "+id+", fname : "+fname+", lname : "+ lname+", email : "+email+", phone : "+phone+", pass : "+pass);
+    public MyDataType(String number,String name,String email){
+
+        this.phonenumber = number;
+        this.name = name;
+        this.email = email;
     }
+
+    public MyDataType(String number){
+        this.phonenumber = number;
+    }
+
+    String phonenumber;
+    String category;
+    String discription;
+    String name;
+    String address;
+    String pincode;
+    String city;
+    String state;
+    String country;
+    String website;
+    String email;
+    String facebook;
+    String instagram;
+
 }

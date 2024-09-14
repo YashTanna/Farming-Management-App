@@ -41,23 +41,29 @@ public class FarmerIntroductionPage2 extends AppCompatActivity {
 
         next.setOnClickListener(v -> {
 
-            if(phonenumber != null) {
+            String coun = "India";
+            String n = name.getText().toString();
+            String a = address.getText().toString();
+            String pin = pincode.getText().toString();
+            String c = city.getText().toString();
+            String s = state.getText().toString();
 
-                String coun = "India";
+            if (n.isEmpty() || a.isEmpty() || pin.isEmpty() || c.isEmpty() || s.isEmpty()) {
+                Toast.makeText(this, "Fill all necessary Field", Toast.LENGTH_SHORT).show();
+            } else {
+
+                if (phonenumber != null) {
 
 
-                String n = name.getText().toString();
-                String a = address.getText().toString();
-                String pin = pincode.getText().toString();
-                String c = city.getText().toString();
-                String s = state.getText().toString();
-                db.addInfo(phonenumber, n, a, pin, c, s, coun);
+                    db.addInfo(phonenumber, n, a, pin, c, s, coun);
 
-                Intent intent = new Intent(this, FarmerIntroductionPage3.class);
-                intent.putExtra("phonenumber", phonenumber);
-                startActivity(intent);
-            }else {
-                    Toast.makeText(this,"Phone number is Null",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, FarmerIntroductionPage3.class);
+                    intent.putExtra("phonenumber", phonenumber);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(this, "Phone number is Null", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

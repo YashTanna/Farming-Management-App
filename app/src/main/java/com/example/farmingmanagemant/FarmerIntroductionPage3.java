@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,14 +35,21 @@ public class FarmerIntroductionPage3 extends AppCompatActivity {
         next = findViewById(R.id.nextButton);
 
         next.setOnClickListener(v -> {
+
             String web = website.getText().toString();
             String em = email.getText().toString();
             String face = facebook.getText().toString();
             String insta = instagram.getText().toString();
 
-            db.addInfo(phonenumber,web,em,face,insta);
-            Intent intent = new Intent(this,HomePage.class);
-            startActivity(intent);
+            if(em.isEmpty()){
+                Toast.makeText(this, "Fill all necessary Field", Toast.LENGTH_SHORT).show();
+            }else {
+
+                db.addInfo(phonenumber, web, em, face, insta);
+                Intent intent = new Intent(this, HomePage.class);
+                intent.putExtra("phonenumber", phonenumber);
+                startActivity(intent);
+            }
         });
 
     }
