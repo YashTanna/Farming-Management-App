@@ -68,7 +68,7 @@ public class Login extends AppCompatActivity {
     // Send OTP via notification
     private void sendOtpNotification(String otp) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.india)  // Use your app icon
+                .setSmallIcon(R.drawable.appicon)  // Use your app icon
                 .setContentTitle("Your OTP Code")
                 .setContentText("Your OTP is: " + otp)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
