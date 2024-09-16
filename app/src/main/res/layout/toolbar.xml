@@ -17,7 +17,7 @@
         android:textColor="@color/white"
         android:layout_centerVertical="true"
         android:textSize="36sp"
-        android:text="Lone"
+        android:text="Add List"
         android:textStyle="bold"
         android:paddingLeft="5dp"/>
 

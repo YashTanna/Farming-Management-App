@@ -7,46 +7,166 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".Farmer_add_item">
+    <include layout="@layout/toolbar"/>
 
-
-
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/Text2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Enter Name"/>
-
-    <EditText
-        android:id="@+id/type"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="Farmer Name*"
+        android:textStyle="bold"
+        android:textColor="#696969"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/phoneLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="type"/>
+        android:layout_height="50dp"
+        android:layout_below="@id/dotsAndPipeline"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle_border"
+        android:padding="5dp">
 
-    <EditText
-        android:id="@+id/price"
-        android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="Enter Name"
+            android:background="@null"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/Text3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="price"/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="Crop Type*"
+        android:textStyle="bold"
+        android:textColor="#696969"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/phoneLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dotsAndPipeline"
+        android:background="@drawable/rectangle_border"
+        android:padding="5dp">
 
-    <EditText
-        android:id="@+id/location"
-        android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="Enter crop type"
+            android:background="@null"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/Text4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="location"/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="Price*"
+        android:textStyle="bold"
+        android:textColor="#696969"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/phoneLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dotsAndPipeline"
+        android:background="@drawable/rectangle_border"
+        android:padding="5dp">
 
-    <EditText
-        android:id="@+id/time"
-        android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="Enter crop price"
+            android:background="@null"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/Text5"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="time"/>
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="Location*"
+        android:textStyle="bold"
+        android:textColor="#696969"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/phoneLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dotsAndPipeline"
+        android:background="@drawable/rectangle_border"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="Enter your city"
+            android:background="@null"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/Text6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:paddingTop="20dp"
+        android:text="Time*"
+        android:textStyle="bold"
+        android:textColor="#696969"
+        android:textSize="20sp" />
+    <LinearLayout
+        android:id="@+id/phoneLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dotsAndPipeline"
+        android:background="@drawable/rectangle_border"
+        android:padding="5dp">
+
+        <EditText
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:hint="Enter your crop time"
+            android:background="@null"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="#A9A9A9"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
-        />
+        android:layout_marginLeft="320dp" />
 
 </LinearLayout>
