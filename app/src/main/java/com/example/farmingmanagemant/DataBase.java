@@ -2,6 +2,7 @@ package com.example.farmingmanagemant;
 
 import android.content.Context;
 import android.database.Cursor;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
@@ -33,7 +34,6 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
-
     // Method to check if a phone number already exists
     public boolean isPhoneNumberExists(String phoneNumber) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -42,7 +42,6 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
-
     // Method to insert a phone number into the database
     public boolean insertPhoneNumber(String phoneNumber) {
         if (isPhoneNumberExists(phoneNumber)) {
@@ -56,6 +55,4 @@ public class DataBase extends SQLiteOpenHelper {
             return result != -1; // Return true if insertion was successful
         }
     }
-
-
 }

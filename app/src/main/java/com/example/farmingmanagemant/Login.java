@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
         }
         notificationManager.notify(1, builder.build());
     }
-
+    
     // Create notification channel (required for Android 8.0 and above)
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

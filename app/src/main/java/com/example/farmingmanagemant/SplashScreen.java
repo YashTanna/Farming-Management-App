@@ -14,30 +14,32 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class SplashScreen extends AppCompatActivity {
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import androidx.appcompat.app.AppCompatActivity;
 
-    ImageView img;
-    Intent intent;
-    TextView text;
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        img = findViewById(R.id.poster);
-        text = findViewById(R.id.text);
+        ImageView splashImage = findViewById(R.id.poster);
 
-        Animation animation = AnimationUtils.loadAnimation(this,R.anim.fadein);
-        img.startAnimation(animation);
-        text.startAnimation(animation);
+        // Load the zoom-in animation
+        Animation zoomIn = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
+        splashImage.startAnimation(zoomIn);
 
-        intent = new Intent(this,MainActivity.class);
-
-        new Handler().postDelayed(()->{
+        // Handler to delay transition to the next activity after 3 seconds
+        new Handler().postDelayed(() -> {
+            Intent intent = new Intent(SplashScreen.this,FirstPage.class);
             startActivity(intent);
-            finish();
-        },3000);
-
+            finish(); // Close splash screen activity
+        }, 3000); // 3 seconds
     }
 }
