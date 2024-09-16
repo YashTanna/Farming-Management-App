@@ -4,11 +4,13 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -18,6 +20,7 @@ import java.util.Random;
 
 public class Login extends AppCompatActivity {
 
+    //    SharedPreferences sp;
     private static final String CHANNEL_ID = "OTP_NOTIFICATION_CHANNEL";
     private EditText phoneNumberField;
     private DataBase logindatabase;
@@ -31,6 +34,7 @@ public class Login extends AppCompatActivity {
         phoneNumberField = findViewById(R.id.phone_number);
         logindatabase = new DataBase(this);
 
+
         // Create the notification channel
         createNotificationChannel();
 
@@ -41,15 +45,15 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(Login.this, "Check your phone number", Toast.LENGTH_SHORT).show();
             } else {
                 phoneNumberField.setBackgroundResource(R.drawable.normal_border);
-                if (logindatabase.insertPhoneNumber(phoneNumber)) {
-                    generatedOtp = generateOtp();  // Generate OTP
-                    sendOtpNotification(generatedOtp);  // Send OTP via notification
+                generatedOtp = generateOtp();  // Generate OTP
+                sendOtpNotification(generatedOtp);  // Send OTP via notification
 
-                    // Proceed to OtpActivity and pass the OTP
-                    Intent intent = new Intent(Login.this, OTP.class);
-                    intent.putExtra("generatedOtp", generatedOtp);
-                    startActivity(intent);
-                }
+                // Proceed to OtpActivity and pass the OTP
+                Intent intent = new Intent(Login.this, OTP.class);
+                intent.putExtra("generatedOtp", generatedOtp);
+                intent.putExtra("phonenumber", phoneNumberField.getText().toString());
+                startActivity(intent);
+
             }
         });
     }
@@ -64,7 +68,7 @@ public class Login extends AppCompatActivity {
     // Send OTP via notification
     private void sendOtpNotification(String otp) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.india)  // Use your app icon
+                .setSmallIcon(R.drawable.appicon)  // Use your app icon
                 .setContentTitle("Your OTP Code")
                 .setContentText("Your OTP is: " + otp)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)

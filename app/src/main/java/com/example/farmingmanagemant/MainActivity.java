@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         i1 = new Intent(this,Login.class);
-        i2 = new Intent(this,SignUp.class);
+//        i2 = new Intent(this,SignUp.class);
         i3 = new Intent(this,HomePage.class);
 
         sp = getSharedPreferences("user_detail",MODE_PRIVATE);

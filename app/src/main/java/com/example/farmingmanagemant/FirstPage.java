@@ -1,6 +1,7 @@
 package   com.example.farmingmanagemant;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstPage extends AppCompatActivity {
+
+    SharedPreferences sp;
 
     private HorizontalScrollView horizontalScrollView;
     private int[] imageRes = {R.drawable.first, R.drawable.second, R.drawable.third};
@@ -25,6 +28,12 @@ public class FirstPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_page);
+
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+
+        if(sp.contains("phonenumber")){
+            startActivity(new Intent(this,HomePage.class));
+        }
 
         horizontalScrollView = findViewById(R.id.horizontalScrollView);
         final ImageView imageView = findViewById(R.id.imageView);

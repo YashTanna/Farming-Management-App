@@ -1,6 +1,7 @@
 package com.example.farmingmanagemant;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -14,32 +15,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import androidx.appcompat.app.AppCompatActivity;
-
 public class SplashScreen extends AppCompatActivity {
+
+    ImageView img;
+    Intent intent;
+    TextView text;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        ImageView splashImage = findViewById(R.id.poster);
+        img = findViewById(R.id.poster);
+        text = findViewById(R.id.text);
+        sp = getSharedPreferences("login",MODE_PRIVATE);
 
-        // Load the zoom-in animation
-        Animation zoomIn = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
-        splashImage.startAnimation(zoomIn);
+        if(sp.contains("phonenumber")){
+            startActivity(new Intent(this,HomePage.class));
+        }
 
-        // Handler to delay transition to the next activity after 3 seconds
-        new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashScreen.this,FirstPage.class);
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.fadein);
+        img.startAnimation(animation);
+        text.startAnimation(animation);
+
+        intent = new Intent(this,FirstPage.class);
+
+        new Handler().postDelayed(()->{
             startActivity(intent);
-            finish(); // Close splash screen activity
-        }, 3000); // 3 seconds
+            finish();
+        },1000);
+
     }
 }

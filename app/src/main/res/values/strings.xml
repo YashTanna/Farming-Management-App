@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FarmingApp</string>
+    <string name="app_name">AgriMarket</string>
     <string name="btn_login">Login</string>
     <string name="btn_signup">Sign Up</string>
     <string name="btn_submit">Submit</string>
@@ -19,4 +19,6 @@
     <string name="help">Help</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="OpenDrawer">Open navigation drawer</string>
+    <string name="CloswDrawer">Close navigation drawer</string>
 </resources>

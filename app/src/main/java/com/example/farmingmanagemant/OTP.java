@@ -2,6 +2,7 @@ package com.example.farmingmanagemant;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +17,8 @@ public class OTP extends AppCompatActivity {
     private EditText otpDigit1, otpDigit2, otpDigit3, otpDigit4;
     private String generatedOtp;
     Button generate_otp_button;
+    SharedPreferences sp;
+    DataBase dataBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +30,12 @@ public class OTP extends AppCompatActivity {
         otpDigit3 = findViewById(R.id.otp_digit_3);
         otpDigit4 = findViewById(R.id.otp_digit_4);
         generate_otp_button = findViewById(R.id.generate_otp_button);
+        sp = getSharedPreferences("login",MODE_PRIVATE);
+        dataBase = new DataBase(this);
 
         // Retrieve the generated OTP from the previous activity
         generatedOtp = getIntent().getStringExtra("generatedOtp");
+        String phoneNumber = getIntent().getStringExtra("phonenumber");
 
         // Set the click listener for the button
         generate_otp_button.setOnClickListener(new View.OnClickListener() {
@@ -43,10 +49,23 @@ public class OTP extends AppCompatActivity {
 
                 // Validate the OTP
                 if (enteredOtp.equals(generatedOtp)) {
-                    // If OTP is valid, navigate to the next activity
-                    Intent intent = new Intent(OTP.this, HomePage.class);
-                    startActivity(intent);
-                    finish();  // Close the current activity
+
+                    SharedPreferences.Editor edit = sp.edit();
+                    edit.putString("phonenumber",phoneNumber);
+                    edit.commit();
+
+                    if(dataBase.isNumberExist(phoneNumber)){
+                        // If OTP is valid and number is already exist, navigate to the Home activity
+                        Intent intent = new Intent(OTP.this, HomePage.class);
+
+                        startActivity(intent);
+                        finish();
+                    }else{
+                        Intent intent = new Intent(OTP.this,FarmerIntroductionPage1.class);
+                        intent.putExtra("phonenumber",phoneNumber);
+                        startActivity(intent);
+                    }
+                     // Close the current activity
                 } else {
                     // If OTP is invalid, show a toast message
                     Toast.makeText(OTP.this, "Invalid OTP. Please try again.", Toast.LENGTH_SHORT).show();
