@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FarmingManagemant"
         tools:targetApi="31">
         <activity
+            android:name=".Farmer_add_item"
+            android:exported="false" />
+        <activity
             android:name=".FarmerIntroductionPage3"
             android:exported="false" />
         <activity
