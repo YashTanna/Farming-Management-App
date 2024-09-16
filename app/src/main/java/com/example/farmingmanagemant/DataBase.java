@@ -1,5 +1,6 @@
 package com.example.farmingmanagemant;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -140,6 +141,23 @@ public class DataBase extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return exist;
+    }
+
+    @SuppressLint("Range")
+    public MyDataType getNameAndEmail(String number){
+        MyDataType data = new MyDataType(number);
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + TABLE_EMAIL + ", " + TABLE_USERNAME + " from " + TABLE_NAME + " where " + TABLE_PHONE_NUMBER + " = ?";
+        Cursor cursor =  db.rawQuery(query,new String[]{number});
+        if (cursor.moveToFirst()) {
+            data.name = cursor.getString(cursor.getColumnIndex(TABLE_USERNAME));
+            data.email = cursor.getString(cursor.getColumnIndex(TABLE_EMAIL));
+        }else{
+            data.name = null;
+            data.email = null;
+        }
+
+        return data;
     }
 
 }
