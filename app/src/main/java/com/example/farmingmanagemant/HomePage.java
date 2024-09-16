@@ -40,7 +40,7 @@ public class HomePage extends AppCompatActivity {
     DataBase db;
     String phonenumber;
     TextView profileName,emailId;
-    ImageView profilePic;
+//    ImageView profilePic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,14 +64,14 @@ public class HomePage extends AppCompatActivity {
         }
         profileName = header.findViewById(R.id.profileName);
         emailId = header.findViewById(R.id.emailId);
-        profilePic = header.findViewById(R.id.profilePic);
+//        profilePic = header.findViewById(R.id.profilePic);
 
         MyDataType data = new MyDataType(phonenumber);
         data = db.getNameAndEmail(phonenumber);
 
         profileName.setText(data.name);
         emailId.setText(data.email);
-        profilePic.setImageResource(R.drawable.yash);
+//        profilePic.setImageResource(R.drawable.yash);
 
 
         //Set Toggle
