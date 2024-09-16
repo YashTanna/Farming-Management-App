@@ -3,23 +3,15 @@ package com.example.farmingmanagemant;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -86,27 +78,27 @@ public class HomePage extends AppCompatActivity {
             if(id == R.id.logout){
                 generateDialog();
             }else{
-                loadFrag(new Home());
+                loadFrag(new HomeFragment());
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
 
         bnv.setOnItemSelectedListener(item -> {
-            loadFrag(new Home());
+            loadFrag(new HomeFragment());
             return true;
         });
 
-        loadFrag(new Home());
+        loadFrag(new HomeFragment());
 
         navigationView.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if(id == R.id.home){
-                loadFrag(new Home());
+                loadFrag(new HomeFragment());
             }else if(id == R.id.loan){
-                loadFrag(new Home());
+                loadFrag(new HomeFragment());
             }else{
-                loadFrag(new Home());
+                loadFrag(new HomeFragment());
             }
             return true;
         });

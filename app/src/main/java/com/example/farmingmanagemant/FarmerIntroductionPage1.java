@@ -18,6 +18,7 @@ public class FarmerIntroductionPage1 extends AppCompatActivity {
     //private ScrollView scrollView;
     private ImageView dropdownIcon;
     private boolean isDropdownOpen = false;
+    private EditText category;
     private EditText phone;
     private EditText discription;
     ImageButton next;
@@ -29,12 +30,13 @@ public class FarmerIntroductionPage1 extends AppCompatActivity {
         setContentView(R.layout.activity_farmer_introduction_page1);
 
         // Initialize views
-        selectedOptionTextView = findViewById(R.id.phoneText1);  // TextView where the selected category will be shown
+//        selectedOptionTextView = findViewById(R.id.phoneText1);  // TextView where the selected category will be shown
        // scrollView = findViewById(R.id.scrollView);              // ScrollView with category options
        // dropdownIcon = findViewById(R.id.image1);                // Dropdown icon to toggle the ScrollView
         discription = findViewById(R.id.phoneText2);             // EditText for description
         phone = findViewById(R.id.phoneText);                    // Phone number field
-        next = findViewById(R.id.nextButton);                    // Next button
+        next = findViewById(R.id.nextButton);
+        category = findViewById(R.id.phoneText1);// Next button
         db = new DataBase(this);                         // Database object
 
         String phonenumber = getIntent().getStringExtra("phonenumber");
@@ -54,18 +56,25 @@ public class FarmerIntroductionPage1 extends AppCompatActivity {
         // Next button click listener
         next.setOnClickListener(v -> {
             String dis = discription.getText().toString();
-            String category = selectedOptionTextView.getText().toString(); // Selected category
+//            String category = selectedOptionTextView.getText().toString(); // Selected category
+            String cat = category.getText().toString().trim().toUpperCase();
 
-            if (dis.isEmpty() || category.equals("select category")) {
+            if (dis.isEmpty() || cat.isEmpty()) {
                 Toast.makeText(this, "Fill all necessary fields", Toast.LENGTH_SHORT).show();
             } else {
-                if (phonenumber != null) {
-                    db.addInfo(phonenumber, category, dis); // Add info to the database
-                    Intent intent = new Intent(this, FarmerIntroductionPage2.class);
-                    intent.putExtra("phonenumber", phonenumber);
+                if(cat.equals("FARMER")){
+                    Intent intent = new Intent(this,Farmer_add_item.class);
+                    intent.putExtra("phonenumber",phonenumber);
                     startActivity(intent);
-                } else {
-                    Toast.makeText(this, "Phone number is Null", Toast.LENGTH_SHORT).show();
+                }else if(cat.equals("CUSTOMER")){
+
+                    db.addInfo(phonenumber,cat,dis);
+
+                    Intent intent = new Intent(this, FarmerIntroductionPage2.class);
+                    intent.putExtra("phonenumber",phonenumber);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(this,"Enter either Farmer or Customer",Toast.LENGTH_SHORT).show();
                 }
             }
         });

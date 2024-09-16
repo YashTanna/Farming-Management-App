@@ -55,7 +55,7 @@ public class OTP extends AppCompatActivity {
                     edit.commit();
 
                     if(dataBase.isNumberExist(phoneNumber)){
-                        // If OTP is valid and number is already exist, navigate to the Home activity
+                        // If OTP is valid and number is already exist, navigate to the HomeFragment activity
                         Intent intent = new Intent(OTP.this, HomePage.class);
 
                         startActivity(intent);
