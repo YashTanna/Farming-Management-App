@@ -159,4 +159,21 @@ public class DataBase extends SQLiteOpenHelper {
         return data;
     }
 
+    @SuppressLint("Range")
+    public MyDataType getNameAndEmail(String number){
+        MyDataType data = new MyDataType(number);
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + TABLE_EMAIL + ", " + TABLE_USERNAME + " from " + TABLE_NAME + " where " + TABLE_PHONE_NUMBER + " = ?";
+        Cursor cursor =  db.rawQuery(query,new String[]{number});
+        if (cursor.moveToFirst()) {
+            data.name = cursor.getString(cursor.getColumnIndex(TABLE_USERNAME));
+            data.email = cursor.getString(cursor.getColumnIndex(TABLE_EMAIL));
+        }else{
+            data.name = null;
+            data.email = null;
+        }
+
+        return data;
+    }
+
 }
