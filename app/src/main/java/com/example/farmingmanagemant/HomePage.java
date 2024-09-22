@@ -1,5 +1,7 @@
 package com.example.farmingmanagemant;
 
+import com.example.farmingmanagemant.fragment.*;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.farmingmanagemant.fragment.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -34,6 +37,7 @@ public class HomePage extends AppCompatActivity {
     TextView profileName,emailId;
 //    ImageView profilePic;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +50,7 @@ public class HomePage extends AppCompatActivity {
         navigationdrawer = findViewById(R.id.navigationDrawer);
         sp = getSharedPreferences("login",MODE_PRIVATE);
         db = new DataBase(this);
-        phonenumber = sp.getString("phonenumber",null);
+        phonenumber = sp.getString("number",null);
         View header = navigationdrawer.getHeaderView(0);
 
         if(phonenumber == null){
@@ -56,14 +60,12 @@ public class HomePage extends AppCompatActivity {
         }
         profileName = header.findViewById(R.id.profileName);
         emailId = header.findViewById(R.id.emailId);
-//        profilePic = header.findViewById(R.id.profilePic);
 
         MyDataType data = new MyDataType(phonenumber);
         data = db.getNameAndEmail(phonenumber);
 
         profileName.setText(data.name);
         emailId.setText(data.email);
-//        profilePic.setImageResource(R.drawable.yash);
 
 
         //Set Toggle

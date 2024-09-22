@@ -17,8 +17,9 @@ public class OTP extends AppCompatActivity {
     private EditText otpDigit1, otpDigit2, otpDigit3, otpDigit4;
     private String generatedOtp;
     Button generate_otp_button;
-    SharedPreferences sp;
     DataBase dataBase;
+    ItemDatabase idb;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class OTP extends AppCompatActivity {
         otpDigit4 = findViewById(R.id.otp_digit_4);
         generate_otp_button = findViewById(R.id.generate_otp_button);
         sp = getSharedPreferences("login",MODE_PRIVATE);
+        idb = new ItemDatabase(this);
+
         dataBase = new DataBase(this);
 
         // Retrieve the generated OTP from the previous activity
@@ -51,15 +54,25 @@ public class OTP extends AppCompatActivity {
                 if (enteredOtp.equals(generatedOtp)) {
 
                     SharedPreferences.Editor edit = sp.edit();
-                    edit.putString("phonenumber",phoneNumber);
-                    edit.commit();
-
+                    edit.putString("number",phoneNumber);
+//                    String cat = dataBase.getCategory(phoneNumber);
+//                    if(cat != null){
+//                        edit.putString("category",cat);
+//                    }
                     if(dataBase.isNumberExist(phoneNumber)){
-                        // If OTP is valid and number is already exist, navigate to the HomeFragment activity
-                        Intent intent = new Intent(OTP.this, HomePage.class);
 
+                        edit.putString("Category","Customer");
+                        edit.commit();
+                        Intent intent = new Intent(OTP.this, HomePage.class);
                         startActivity(intent);
-                        finish();
+
+                    }else if(idb.isNumberExist(phoneNumber)){
+
+                        edit.putString("Category","Farmer");
+                        edit.commit();
+                        Intent intent = new Intent(OTP.this,Farmer_add_item.class);
+                        startActivity(intent);
+
                     }else{
                         Intent intent = new Intent(OTP.this,FarmerIntroductionPage1.class);
                         intent.putExtra("phonenumber",phoneNumber);

@@ -143,6 +143,22 @@ public class DataBase extends SQLiteOpenHelper {
         return exist;
     }
 
+    public String getCategory(String numbre){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String category;
+        String query = "SELECT "+TABLE_CATEGORY+" FROM "+TABLE_NAME+" WHERE "+TABLE_PHONE_NUMBER+" = ?";
+        Cursor cursor = db.rawQuery(query,new String[]{numbre});
+        if (cursor != null && cursor.moveToFirst()) {
+            category = cursor.getString(0);
+            cursor.close();
+        }else {
+            category = "";
+        }
+
+        db.close();
+        return category;
+    }
+
     @SuppressLint("Range")
     public MyDataType getNameAndEmail(String number){
         MyDataType data = new MyDataType(number);
@@ -156,7 +172,8 @@ public class DataBase extends SQLiteOpenHelper {
             data.name = null;
             data.email = null;
         }
-
+        cursor.close();
+        db.close();
         return data;
     }
 

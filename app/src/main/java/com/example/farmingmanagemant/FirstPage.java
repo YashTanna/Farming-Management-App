@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -30,9 +31,16 @@ public class FirstPage extends AppCompatActivity {
         setContentView(R.layout.activity_first_page);
 
         sp = getSharedPreferences("login",MODE_PRIVATE);
-
-        if(sp.contains("phonenumber")){
-            startActivity(new Intent(this,HomePage.class));
+        if(sp.contains("number")){
+            String category = sp.getString("category",null);
+            Log.d("Category Selected", "Category: " + category);
+            if("Farmer".equals(category)){
+                Intent intent = new Intent(this, Farmer_add_item.class);
+                startActivity(intent);
+            }else{
+                Intent intent = new Intent(this, HomePage.class);
+                startActivity(intent);
+            }
         }
 
         horizontalScrollView = findViewById(R.id.horizontalScrollView);

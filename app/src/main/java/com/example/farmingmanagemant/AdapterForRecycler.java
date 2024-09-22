@@ -38,6 +38,9 @@ public class AdapterForRecycler extends RecyclerView.Adapter<AdapterForRecycler.
         ItemModule data =list.get(position);
         Log.d("Adapter", "Binding item at position: " + position);
         Log.d("Adapter", "Item data: " + data.type + ", " + data.name);
+        if(list.isEmpty()){
+            Log.d("Adapter", "List is empty");
+        }
         holder.type.setText(data.type);
         holder.time.setText(data.time);
         holder.price.setText(data.price);

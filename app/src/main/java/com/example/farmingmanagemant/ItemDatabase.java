@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.location.Location;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -70,12 +69,22 @@ public class ItemDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
+    public boolean isNumberExist(String phoneNumber) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT 1 FROM " + TABLE_NAME + " WHERE " + TABLE_PHONE_NUMBER + " = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{phoneNumber});
+        boolean exist = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exist;
+    }
+
 
     @SuppressLint("Range")
-    public ArrayList<ItemModule> getItemFromDatabase() {
+    public ArrayList<ItemModule> getItemFromDatabase(String item_type) {
         ArrayList<ItemModule> list = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + TABLE_ITEM_TYPE + " = 'GARLIC'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + TABLE_ITEM_TYPE + " = ?", new String[]{item_type});
 
         Log.d("GarlicFragment", "Rows fetched: " + cursor.getCount());
 
@@ -91,6 +100,10 @@ public class ItemDatabase extends SQLiteOpenHelper {
                 list.add(new ItemModule(number, name, type, price, location, time));
 
             } while (cursor.moveToNext());
+        }
+
+        if(list.isEmpty()){
+            Log.d("Database", "List is empty");
         }
 
         cursor.close();

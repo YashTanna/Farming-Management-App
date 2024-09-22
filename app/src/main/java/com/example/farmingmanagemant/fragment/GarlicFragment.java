@@ -1,4 +1,4 @@
-package com.example.farmingmanagemant;
+package com.example.farmingmanagemant.fragment;
 
 import android.os.Bundle;
 
@@ -11,17 +11,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.farmingmanagemant.AdapterForRecycler;
+import com.example.farmingmanagemant.ItemDatabase;
+import com.example.farmingmanagemant.ItemModule;
+import com.example.farmingmanagemant.R;
+
 import java.util.ArrayList;
 
 public class GarlicFragment extends Fragment {
+
+    public GarlicFragment() {
+
+    }
 
     RecyclerView recyclerView;
     ArrayList<ItemModule> list;
     ItemDatabase db;
 
-    public GarlicFragment() {
 
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,11 +37,14 @@ public class GarlicFragment extends Fragment {
         db = new ItemDatabase(requireActivity());
         recyclerView = view.findViewById(R.id.recyclerView);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        if (recyclerView != null) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity())); // Set LayoutManager
+            // Set up your adapter and other RecyclerView settings here
+        } else {
+            Log.e("MainActivity2", "RecyclerView is null");
+        }
 
-        list = db.getItemFromDatabase();
-
-        Log.d("GarlicFragment", "List size: " + list.size());
+        list = db.getItemFromDatabase("Garlic");
 
         AdapterForRecycler adapter =new AdapterForRecycler(requireActivity(),list);
         recyclerView.setAdapter(adapter);

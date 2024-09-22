@@ -20,10 +20,8 @@ import java.util.Random;
 
 public class Login extends AppCompatActivity {
 
-    //    SharedPreferences sp;
     private static final String CHANNEL_ID = "OTP_NOTIFICATION_CHANNEL";
     private EditText phoneNumberField;
-    private DataBase logindatabase;
     private String generatedOtp;
 
     @Override
@@ -32,7 +30,6 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         phoneNumberField = findViewById(R.id.phone_number);
-        logindatabase = new DataBase(this);
 
 
         // Create the notification channel

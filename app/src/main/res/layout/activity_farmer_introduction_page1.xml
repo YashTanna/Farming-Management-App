@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp">
 
     <ImageView
@@ -152,58 +153,76 @@
         android:layout_height="50dp"
         android:layout_below="@id/dotsAndPipeline"
         android:layout_marginTop="175dp"
-        android:orientation="horizontal"
-        android:background="@drawable/rectangle_border"
-        android:padding="12dp">
+        android:orientation="horizontal">
 
-
-        <EditText
-            android:id="@+id/phoneText1"
-            android:layout_width="333dp"
-            android:layout_height="50dp"
-            android:hint="select category"
-            android:textSize="18dp"
-            android:layout_gravity="center_vertical"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:textColor="#A9A9A9"
-            android:background="@null"/>
+            app:hintTextColor="#A9A9A9">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/image1"-->
-<!--            android:layout_width="17dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            android:src="@drawable/down" />-->
-<!--        <ScrollView-->
-<!--            android:id="@+id/scrollView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:layout_below="@id/image1"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:visibility="gone">-->
+            <AutoCompleteTextView
+                android:id="@+id/dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rectangle_border"
+                android:inputType="none"
+                android:text="Category"
+                android:textColor="#A9A9A9"
+                android:textSize="18sp" />
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="vertical">-->
-<!--                <TextView-->
-<!--                    android:id="@+id/option1"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="10dp"-->
-<!--                    android:text="Farmer"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:onClick="selectOption" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/option2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="10dp"-->
-<!--                    android:text="Customer"-->
-<!--                    android:textSize="18sp"-->
-<!--                    android:onClick="selectOption" />-->
+        </com.google.android.material.textfield.TextInputLayout>
 
-<!--            </LinearLayout>-->
-<!--        </ScrollView>-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/phoneText1"-->
+        <!--            android:layout_width="333dp"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:hint="select category"-->
+        <!--            android:textSize="18dp"-->
+        <!--            android:layout_gravity="center_vertical"-->
+        <!--            android:textColor="#A9A9A9"-->
+        <!--            android:background="@null"/>-->
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/image1"-->
+        <!--            android:layout_width="17dp"-->
+        <!--            android:layout_height="24dp"-->
+        <!--            android:src="@drawable/down" />-->
+        <!--        <ScrollView-->
+        <!--            android:id="@+id/scrollView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="50dp"-->
+        <!--            android:layout_below="@id/image1"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:visibility="gone">-->
+
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:orientation="vertical">-->
+        <!--                <TextView-->
+        <!--                    android:id="@+id/option1"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:padding="10dp"-->
+        <!--                    android:text="Farmer"-->
+        <!--                    android:textSize="18sp"-->
+        <!--                    android:onClick="selectOption" />-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/option2"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:padding="10dp"-->
+        <!--                    android:text="Customer"-->
+        <!--                    android:textSize="18sp"-->
+        <!--                    android:onClick="selectOption" />-->
+
+        <!--            </LinearLayout>-->
+        <!--        </ScrollView>-->
 
     </LinearLayout>
     <TextView
@@ -242,8 +261,8 @@
             android:src="@drawable/discription" />
         <EditText
             android:id="@+id/phoneText2"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:hint="Discribe about your business..."
             android:layout_marginLeft="5dp"
