@@ -11,6 +11,8 @@ public class MyDataType {
         this.email = email;
     }
 
+
+
     public MyDataType(String number){
         this.phonenumber = number;
     }

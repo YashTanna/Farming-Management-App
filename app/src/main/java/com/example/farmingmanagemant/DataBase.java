@@ -177,4 +177,22 @@ public class DataBase extends SQLiteOpenHelper {
         return data;
     }
 
+    public MyDataType getInfo(String number){
+        MyDataType data = new MyDataType(number);
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "select * from "+TABLE_NAME+" where "+TABLE_PHONE_NUMBER+" = ?";
+        Cursor cursor = db.rawQuery(query,new String[]{number});
+
+        if(cursor.getCount() > 0 && cursor.moveToFirst()){
+            data.name = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_USERNAME));
+            data.email = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_EMAIL));
+            data.phonenumber = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_PHONE_NUMBER));
+            data.address = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_ADDRESS));
+            data.city = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_CITY));
+            data.state = cursor.getString(cursor.getColumnIndexOrThrow(TABLE_STATE));
+        }
+
+        return data;
+    }
+
 }
