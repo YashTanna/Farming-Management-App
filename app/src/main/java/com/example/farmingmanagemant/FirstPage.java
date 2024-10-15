@@ -57,7 +57,7 @@ public class FirstPage extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FirstPage.this,Login.class);
+                Intent intent = new Intent(FirstPage.this,Loan.class);
                 startActivity(intent);
             }
         });

@@ -22,4 +22,39 @@
     <string name="OpenDrawer">Open navigation drawer</string>
     <string name="CloswDrawer">Close navigation drawer</string>
     <string name="crop_type">Crop Type</string>
+
+
+    <string name="Kusum">=>Pradhan Mantri Kisan Urja Suraksha evam Utthan Mahabhiyan (PM-KUSUM) Scheme for de-dieselisation of farm sector and enhancing the income of farmers.\n\n=>Under the Scheme, central government subsidy upto 30% or 50% of the total cost is given for the installation of standalone solar pumps and also for the solarization of existing grid-connected agricultural pumps.\n\n=>Further, farmers can also install grid-connected solar power plants up to 2MW under the Scheme on their barren/fallow land and sell electricity to local DISCOM at a tariff determined by state regulator.\n\n=>This scheme is being implemented by the designated departments of the State Government.
+
+
+        </string>
+    <string name="aif">AIF can refer to the Agriculture Infrastructure Fund or Alternative Investment Funds:\n\n
+    Agriculture Infrastructure Fund (AIF): A government program that provides medium- to long-term financing for agricultural infrastructure projects. The programs goal is to improve agriculture infrastructure, boost production, and increase farmer returns. </string>
+    <string name="ahidf">AHIDF stands for Animal Husbandry Infrastructure Development Fund, a central sector scheme that aims to encourage investments in animal husbandry infrastructure:
+        \n\n=>Dairy processing and value addition infrastructure
+        \n=>Meat processing and value addition infrastructure
+        \n=>Animal feed plant
+        \n=>Breed improvement technology and breed multiplication farm
+        \n=>Animal waste to wealth management (agri waste management)
+        \n=>Setting up of veterinary vaccine and drugs manufacturing facilities
+        </string>
+    <string name="KCC">
+    The KCC Scheme was introduced with the objective of providing adequate and timely credit to the farmers for their agricultural operations. The Government of India provides interest subvention of 2% and Prompt Repayment Incentive of 3% to the farmers, thus making the credit available at a very subsidized rate of 4% per annum.
+        \n\nThe scheme was further extended for the investment credit requirement of farmers viz. allied and non-farm activities in the year 2004 and further revisited in 2012 by a working Group under the Chairmanship of Shri T. M. Bhasin, CMD, Indian Bank with a view to simplify the scheme and facilitate the issue of Electronic Kisan Credit Cards. The scheme provides broad guidelines to banks for operationalizing the KCC scheme. Implementing banks will have the discretion to adopt the same to suit institution/location-specific requirements.
+    </string>
+    <string name="KSR">
+        Kisan Samriddhi Rin is a loan scheme offered by SBI for agriculture and rural activities. It offers a variety of loans, including:\n\n
+        1)Farm mechanization loans\n
+        2)Crop loans\n
+        3)Gold loans\n
+        4)Micro credit\n
+        5)Miscellaneous activities loans\n
+    </string>
+
+    <string name="Kusum1">https://www.myscheme.gov.in/schemes/pm-kusum</string>
+    <string name="aif1">https://www.myscheme.gov.in/schemes/aif</string>
+    <string name="ahidf1">https://ahidf.udyamimitra.in/scheme-instruction.html</string>
+    <string name="KCC1">https://sbi.co.in/web/agri-rural/agriculture-banking/crop-loan/kisan-credit-card</string>
+    <string name="KSR1">https://sbi.co.in/web/agri-rural/agri-rural/agriculture-banking/kisan-samriddhi-rin</string>
+
 </resources>
