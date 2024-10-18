@@ -9,6 +9,72 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+    <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="430dp"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:padding="10dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="420dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/vegetabel" />
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/fruite" />
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/corn"
+                android:layout_marginRight="10dp"/>
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/grains"
+                android:layout_margin="10dp"/>
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/cauliflower"
+                android:layout_margin="10dp"/>
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/veg2"
+                android:layout_margin="10dp"/>
+
+            <ImageView
+                android:layout_width="420dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/grains2"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

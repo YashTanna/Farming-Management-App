@@ -24,7 +24,7 @@ public class FirstPage extends AppCompatActivity {
     private int currentIndex = 0;
     private Handler handler = new Handler();
     private Button b1;
-    private TextView t1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,22 +52,15 @@ public class FirstPage extends AppCompatActivity {
         final View dot3 = findViewById(R.id.dot3);
 
         b1=findViewById(R.id.nextButton);
-        t1=findViewById(R.id.existingAccountTextView);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FirstPage.this,Loan.class);
+                Intent intent = new Intent(FirstPage.this,Login.class);
                 startActivity(intent);
             }
         });
-        t1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FirstPage.this, FirstPage.class);
-                startActivity(intent);
-            }
-        });
+
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -83,7 +76,7 @@ public class FirstPage extends AppCompatActivity {
 
                 horizontalScrollView.smoothScrollTo(currentIndex * horizontalScrollView.getWidth(), 0);
 
-                handler.postDelayed(this, 5000); // Scroll every 2 seconds
+                handler.postDelayed(this, 5000); // Scroll every 5 seconds
             }
         };
 

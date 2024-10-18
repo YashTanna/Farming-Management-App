@@ -99,15 +99,6 @@
     android:layout_marginBottom="50dp"
     android:textColor="@color/white"/>
 
-    <TextView
-        android:id="@+id/existingAccountTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/horizontalScrollView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-40dp"
-        android:text="I ALREADY HAVE AN ACCOUNT"
-        android:textSize="20dp"
-        android:textColor="@color/green" />
+
 
 </RelativeLayout>
