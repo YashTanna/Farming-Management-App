@@ -9,12 +9,12 @@
     <item
         android:id="@+id/loan"
         android:title="@string/loan"
-        android:icon="@drawable/setting"/>
+        android:icon="@drawable/loan"/>
 
     <item
         android:id="@+id/help"
-        android:title="@string/help"
-        android:icon="@drawable/help"/>
+        android:title="Information"
+        android:icon="@drawable/video"/>
 
 
 

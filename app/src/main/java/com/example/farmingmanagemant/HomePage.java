@@ -98,9 +98,9 @@ public class HomePage extends AppCompatActivity {
             if(id == R.id.home){
                 loadFrag(new HomeFragment());
             }else if(id == R.id.loan){
-                loadFrag(new HomeFragment());
+                loadFrag(new LoanFragment());
             }else{
-                loadFrag(new HomeFragment());
+                loadFrag(new VideoFragment());
             }
             return true;
         });

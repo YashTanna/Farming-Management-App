@@ -17,14 +17,14 @@ import java.util.List;
 public class LoanAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     private Context context;
-    private List<DataClass> dataList;
+    private List<DataClassLoan> dataList;
 
-    public void setSearchList(List<DataClass> dataSearchList){
+    public void setSearchList(List<DataClassLoan> dataSearchList){
         this.dataList = dataSearchList;
         notifyDataSetChanged();
     }
 
-    public LoanAdapter(Context context, List<DataClass> dataList){
+    public LoanAdapter(Context context, List<DataClassLoan> dataList){
         this.context = context;
         this.dataList = dataList;
     }
